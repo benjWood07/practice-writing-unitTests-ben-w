@@ -1,13 +1,13 @@
 const { addItem, removeItem, getTotalItems } = require('../cartUtils');
 
 describe('Cart Utils', () => {       //creates a test suite grouping all cart-related tests
-    let cart;                        //declares a variable to hold our test cart data
+    let cart;
     beforeEach(() => {               //runs before each test to reset the cart to an empty state
-        cart = { items: [] };        //ensures each test starts with a clean cart
+        cart = { items: [] };
     });
 
     describe('addItem', () => {                                              //creates a sub-group for addItem tests
-        test('should add new item to empty cart', () => {                    //defines a specific test case - Jest function test()
+        test('should add new item to empty cart', () => {
             const item = { id: 1, name: 'Red Hot Ripplets', price: 5.66 };   //creates an item object to test with
             const results = addItem(cart, item, 3);                          //calls our function and stores the returned new cart
 
@@ -20,7 +20,7 @@ describe('Cart Utils', () => {       //creates a test suite grouping all cart-re
             const item = { id: 1, name: 'Red Hot Ripplets', price: 5.66 };
             const result = addItem(cart, item, 1);
 
-            expect(result.item[0].quantity).toBe(3);        //accessing nested properties, stict equality toBe using Object.is() for comparison
+            expect(result.item[0].quantity).toBe(3);
         });
     });
 
